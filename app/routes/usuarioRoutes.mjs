@@ -1,13 +1,14 @@
 import express from 'express';
 import {
-  listarUsuarios,
+  // listarUsuarios,
   guardarUsuario,
 } from '../controllers/usuarioController.mjs';
 
 const router = express.Router();
 
-router.get('/usuarios', listarUsuarios);
+// router.get('/usuarios', listarUsuarios);
 
-router.post('/usuarios', guardarUsuario);
+router.post('/index', guardarUsuario);
 
 export default router;
+

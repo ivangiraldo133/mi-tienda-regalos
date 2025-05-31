@@ -1,16 +1,26 @@
 import express from 'express';
-import gastoRoutes from './app/routes/usuarioRoutes.mjs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import loginRoutes from './app/routes/usuarioRoutes.mjs';
 
-const port = 3000;
 const app = express();
+const port = 3000;
+
+// Necesario para usar __dirname con ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Middlewares
 app.use(express.json());
-app.use(express.static('cliente')); 
+app.use(express.urlencoded({ extended: true }));
 
-// Rutas
-app.use('/', gastoRoutes);  
+// Servir archivos estáticos desde la carpeta "cliente"
+app.use(express.static(path.join(__dirname, 'cliente')));
 
+// Rutas API
+app.use('/', loginRoutes);
+
+// Iniciar servidor
 app.listen(port, () => {
-    console.log(`Servidor escuchando en el puerto ${port}`);
+  console.log(`Servidor escuchando en http://localhost:${port}`);
 });

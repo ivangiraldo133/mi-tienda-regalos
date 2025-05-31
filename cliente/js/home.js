@@ -66,12 +66,6 @@ document.querySelectorAll(".modal").forEach(modal => {
         return;
       }
 
-      const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-
-      if (usuarios.find(u => u.correo === correo)) {
-        alert("Este correo ya está registrado.");
-        return;
-      }
 
       usuarios.push({ nombre, apellidos, telefono, correo, password });
       localStorage.setItem("usuarios", JSON.stringify(usuarios));
@@ -120,17 +114,22 @@ document.querySelectorAll(".modal").forEach(modal => {
       alert("Las contraseñas no coinciden.");
       return;
     }
-
     try {
-      const res = await fetch("http://localhost:3000/api/registro", {
+      const res = await fetch("http://localhost:3000/index", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nombre, apellidos, telefono, correo, password }),
+        body: JSON.stringify({
+          Nombre: nombre,
+          Apellidos: apellidos,
+          Telefono: telefono,
+          CorreoElectronico: correo,
+          Contrasena: password
+        }),
       });
 
       const data = await res.json();
-      if (data.Nombre) {
-        alert(`¡Registro exitoso! Bienvenido, ${data.Nombre}`);
+      if (data.nombre) {
+        alert(`¡Registro exitoso! Bienvenido, ${data.nombre}`);
         closeModal("registroModal");
         e.target.reset();
       } else {
@@ -140,6 +139,7 @@ document.querySelectorAll(".modal").forEach(modal => {
       alert("Error en el servidor.");
       console.error(error);
     }
+
   });
 
   // Login con base de datos
@@ -148,26 +148,32 @@ document.querySelectorAll(".modal").forEach(modal => {
     const nombre = document.getElementById("loginNombre").value.trim();
     const password = document.getElementById("loginPassword").value;
 
-    try {
-      const res = await fetch("http://localhost:3000/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nombre, password }),
-      });
+    // try {
+    //   const res = await fetch("http://localhost:3000", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify({ nombre, password }),
+    //   });
 
-      const data = await res.json();
-      if (data.Nombre) {
-        alert(`¡Hola ${data.Nombre}!`);
-        closeModal("loginModal");
-        e.target.reset();
-      } else {
-        alert(data.error || "Nombre o contraseña incorrectos.");
-      }
-    } catch (error) {
-      alert("Error en el servidor.");
-      console.error(error);
-    }
+    //   const data = await res.json();
+    //   if (data.Nombre) {
+    //     alert(`¡Hola ${data.Nombre}!`);
+    //     closeModal("loginModal");
+    //     e.target.reset();
+    //   } else {
+    //     alert(data.error || "Nombre o contraseña incorrectos.");
+    //   }
+    // } catch (error) {
+    //   alert("Error en el servidor.");
+    //   console.error(error);
+    // }
+
+    window.location.href = '/pedidos.html';
+
   });
+
+
+
 
   // Recuperar contraseña (simulado)
   document.getElementById("formRecuperar")?.addEventListener("submit", (e) => {
@@ -178,3 +184,6 @@ document.querySelectorAll(".modal").forEach(modal => {
     e.target.reset();
   });
 });
+
+
+

@@ -274,9 +274,26 @@ app.listen(port, () => {
 app.get('/categorias/:categoria', (req, res) => {
   const categoria = req.params.categoria;
 
+
   // Aquí debes cargar las imágenes de la categoría específica, puedes hacer algo como esto:
   const imagenes = obtenerImagenesPorCategoria(categoria);
-  
+});
 
-  res.json({ imagenes });
+// Escuchar clics en elementos con atributo data-numero
+document.querySelectorAll('[data-numero]').forEach(el => {
+  el.addEventListener('click', e => {
+    e.preventDefault(); // evita redirección si es un <a>
+    
+    const numero = el.getAttribute('data-numero');
+    const mensaje = document.getElementById('mensaje-pago');
+    const texto = document.getElementById('texto-mensaje');
+
+    texto.textContent = `Realiza el pago al número: ${numero}`;
+    mensaje.classList.remove('oculto');
+
+    // Ocultar mensaje después de 4 segundos
+    setTimeout(() => {
+      mensaje.classList.add('oculto');
+    }, 4000);
+  });
 });

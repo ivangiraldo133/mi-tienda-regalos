@@ -70,7 +70,7 @@ nav button:hover {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 24px;
-  padding: 120px 20px 40px;
+  padding: 110px 20px 40px;
 }
 
 .item {
@@ -293,11 +293,11 @@ main {
 
 /* Botón de pago */
 .pago-opcion {
-  background-color: #25D366; /* Color de fondo similar a WhatsApp */
+  background-color: #c494f8; /* Color de fondo similar a WhatsApp */
   border: none;
-  padding: 10px;
+  padding: 20px;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 10px;
   color: white;
   display: flex;
   align-items: center;
@@ -307,20 +307,89 @@ main {
   text-align: center;
   justify-content: center;
 }
-
 .pago-opcion img {
-  width: 24px; /* Ajusta el tamaño del logo */
-  height: 24px;
+  width: 60px;  /* Aumenta el ancho */
+  height: auto;  /* Mantiene la proporción original */
+  object-fit: contain;  /* Evita que se deformen */
 }
 
 /* Efecto hover para los botones */
-.pago-opcion:hover {
-  background-color: #128c7e; /* Color más oscuro para el hover */
+/* Barra lateral inferior derecha */
+.barra-pagos {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  z-index: 1000;
 }
 
-.contenedor-principal img {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  height: auto;
+/* Contenedor vertical para íconos */
+.iconos-derecha {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
 }
+
+/* Ícono de WhatsApp */
+.whatsapp-fijo img {
+  width: 60px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Botones de Nequi y Daviplata */
+.opciones-pago {
+  display: flex;
+  gap: 10px;
+}
+
+.pago-opcion {
+  background-color: #c494f8;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  width: 130px;
+  justify-content: center;
+}
+
+.pago-opcion img {
+  width: 70px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Mensaje flotante centrado para número de pago */
+.mensaje-pago {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #4a274c;
+  color: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-size: 18px;
+  z-index: 2000;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Clase para ocultar elementos */
+.oculto {
+  display: none;
+}
+
+
+
+
