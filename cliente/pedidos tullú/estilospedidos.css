@@ -1,0 +1,326 @@
+:root {
+  --color-primario: #5c315e;
+  --color-secundario: #c494f8;
+  --color-acento: #ffc107;
+  --color-hover: #e0b9fb;
+  --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ----------------------------------------------
+   GENERAL
+---------------------------------------------- */
+body {
+  background: url('../imagenes/index/logo 4.png ') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  height: 50vh;
+  font-family: var(--fuente-principal);
+  margin: 0;
+  padding: 0;
+  background-color: #c494f8;
+  color: #333;
+}
+
+/* ----------------------------------------------
+   HEADER
+---------------------------------------------- */
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 15px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--color-secundario);
+  z-index: 999;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ----------------------------------------------
+   NAV
+---------------------------------------------- */
+nav {
+  display: flex;
+  gap: 12px;
+}
+
+
+nav button {
+  padding: 10px 18px;
+  background: #fff;
+  color: var(--color-primario);
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+nav button:hover {
+  background-color: var(--color-hover);
+}
+
+/* ----------------------------------------------
+   GALERÍA
+---------------------------------------------- */
+#galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+  padding: 120px 20px 40px;
+}
+
+.item {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.25s ease;
+}
+
+.item:hover {
+  transform: scale(1.04);
+}
+
+.item img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+/* Botones dentro de cada item */
+.item button {
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.item button i {
+  margin-right: 6px;
+}
+
+.item button:first-of-type {
+  background-color: var(--color-primario);
+  color: #fff;
+}
+
+.item button:first-of-type:hover {
+  background-color: #4a274c;
+  transform: translateY(-2px);
+}
+
+.item button:last-of-type {
+  background-color: var(--color-acento);
+  color: #212529;
+}
+
+.item button:last-of-type:hover {
+  background-color: #e0a800;
+  transform: translateY(-2px);
+}
+
+/* ----------------------------------------------
+   CATEGORÍAS
+---------------------------------------------- */
+#menu-categorias {
+  margin-top: 60px;
+}
+
+#menu-categorias ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 80px;
+  list-style: none;
+  padding: 16px 20px;
+  margin: 0 auto;
+  max-width: 900px;
+  width: 100%;
+}
+
+#menu-categorias li {
+  flex: 1 1 180px;
+  max-width: 220px;
+  background-color: #fff;
+  padding: 28px 18px 20px; /* más espacio arriba */
+  border-radius: 18px;
+  font-weight: 700;
+  font-size: 17px;
+  cursor: pointer;
+  box-shadow:
+    0 6px 15px rgba(92, 49, 94, 0.15),
+    0 2px 6px rgba(92, 49, 94, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primario);
+  border: 1.8px solid rgba(92, 49, 94, 0.2);
+  backdrop-filter: saturate(180%) blur(12px);
+  transition: all 0.35s ease;
+  text-align: center;
+  user-select: none;
+}
+
+#menu-categorias li img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: 50%;
+  padding: 12px;
+  background: linear-gradient(145deg, #f0e8ff, #cbbaff);
+  box-shadow:
+    0 8px 15px rgba(92, 49, 94, 0.3),
+    inset 0 4px 6px rgba(255, 255, 255, 0.6),
+    inset 0 -4px 6px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+  filter: drop-shadow(0 4px 6px rgba(92, 49, 94, 0.25));
+  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+}
+
+#menu-categorias li:hover {
+  background-color: var(--color-hover);
+  color: #4a274c;
+  border-color: var(--color-primario);
+  transform: translateY(-8px) scale(1.05);
+  box-shadow:
+    0 15px 35px rgba(92, 49, 94, 0.3),
+    0 6px 15px rgba(92, 49, 94, 0.2);
+  z-index: 10;
+}
+
+#menu-categorias li:hover img {
+  transform: scale(1.18) rotate(5deg);
+  box-shadow:
+    0 22px 48px rgba(92, 49, 94, 0.5),
+    inset 0 6px 10px rgba(255, 255, 255, 0.75),
+    inset 0 -6px 10px rgba(0, 0, 0, 0.25);
+  filter: drop-shadow(0 8px 12px rgba(92, 49, 94, 0.4));
+}
+
+
+/* ----------------------------------------------
+   MAIN
+---------------------------------------------- */
+main {
+  padding: 40px 20px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.contenedor-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ----------------------------------------------
+   ALERTA / MENSAJE
+---------------------------------------------- */
+#mensaje {
+  margin-top: 30px;
+  font-size: 16px;
+  color: #856404;
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  padding: 15px 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 600px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.oculto {
+  display: none;
+}
+
+/* ----------------------------------------------
+   ICONOS FIJOS INFERIORES
+---------------------------------------------- */
+.icono-pago-inferior .numero-pago {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translate(-50%, 10px);
+  background: rgba(255, 255, 255, 0.85); /* efecto glass ligero */
+  backdrop-filter: blur(6px);
+  color: var(--color-primario);
+  padding: 8px 16px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  border: 1px solid rgba(92, 49, 94, 0.2);
+}
+
+.icono-pago-inferior.mostrar .numero-pago {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+/*iconos nequi y daviplata*/
+/* Contenedor de los iconos de pago */
+.iconos-pago-inferior {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Estilo general para los botones de pago */
+.opciones-pago {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Botón de pago */
+.pago-opcion {
+  background-color: #25D366; /* Color de fondo similar a WhatsApp */
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  width: 150px;
+  text-align: center;
+  justify-content: center;
+}
+
+.pago-opcion img {
+  width: 24px; /* Ajusta el tamaño del logo */
+  height: 24px;
+}
+
+/* Efecto hover para los botones */
+.pago-opcion:hover {
+  background-color: #128c7e; /* Color más oscuro para el hover */
+}
+
+.contenedor-principal img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}

@@ -13,11 +13,23 @@
   "author": "ivan rene giraldo",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
     "express": "^5.1.0",
-    "pg": "^8.15.6",
+    "express-session": "^1.18.1",
+    "multer": "^2.0.0",
+    "pg": "^8.16.0",
     "skeleton-css": "^2.0.4"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivangiraldo133/tullu.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ivangiraldo133/tullu/issues"
+  },
+  "homepage": "https://github.com/ivangiraldo133/tullu#readme"
 }

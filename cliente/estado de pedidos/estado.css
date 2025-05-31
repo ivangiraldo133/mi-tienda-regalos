@@ -1,0 +1,232 @@
+/* Fondo y estilo general */
+body {
+  background: url('../imagenes/index/logo 5.png') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #c494f8;
+  color: blanchedalmond;
+  height: 100vh;
+  position: relative; /* para referencia del botón fijo */
+  overflow-x: hidden;
+}
+
+/* Botón fijo en esquina superior derecha */
+.boton-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.boton-inicio {
+  padding: 10px 16px;
+  background-color: #5c315e;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 0 4px #4b3fff;
+  transition: all 0.3s ease;
+}
+
+.boton-inicio:hover {
+  background-color: #5a4df0;
+  box-shadow: 0 2px #3d2fd8;
+  transform: translateY(-2px);
+}
+
+/* Contenedor principal que centra todo */
+.contenedor-principal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* centra verticalmente */
+  align-items: center;      /* centra horizontalmente */
+  height: 100vh;            /* altura total viewport */
+  width: 100vw;             /* ancho total viewport para evitar scroll */
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 0;                /* elimina márgenes */
+}
+
+/* Título */
+h1 {
+  color: #5c315e;
+  font-size: 2.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+  text-align: center; /* Asegura el centrado horizontal */
+}
+
+/* Formulario */
+form {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 90%;
+  max-width: 650px;
+  margin: auto; /* Este es el cambio clave para centrar horizontalmente */
+  border: 1px solid #e6e6f0;
+}
+
+
+/* Etiquetas */
+label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Entradas del formulario */
+input,
+select,
+textarea {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05);
+  font-size: 16px;
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #5c315e;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  grid-column: span 2;
+  min-height: 70px;
+}
+
+/* Botón del formulario */
+button {
+  grid-column: span 2;
+  padding: 14px;
+  background: linear-gradient(to right,#5c315e, #A084FF);
+  border: none;
+  border-radius: 14px;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 6px #5c315e;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+button:hover {
+  background: linear-gradient(to right, #5a4df0, #8b6dff);
+  transform: translateY(-2px);
+  box-shadow: 0 4px #3d2fd8;
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px #3d2fd8;
+}
+
+/* Tabla */
+.contenedor-tabla {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px;
+}
+
+table {
+  width: 100%;
+  max-width: 950px;
+  border-collapse: collapse;
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+th,
+td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #eeeeee;
+  text-align: center;
+}
+
+th {
+  background: #6C63FF;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+tr:hover {
+  background-color: #f0f8ff;
+  transition: background 0.3s ease;
+}
+
+/* Botones de acciones en tabla */
+.acciones button {
+  background: #F5A623;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px #cc8700;
+  transition: all 0.2s ease;
+  margin: 0 3px;
+}
+
+.acciones button:hover {
+  background: #e5930b;
+  transform: translateY(-1px);
+}
+
+.acciones button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px #cc8700;
+}
+
+
+/* Botón fijo en esquina superior derecha */
+.boton-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Oculta todo el contenido menos el botón */
+.oculto {
+  display: none;
+}
+
+/* Estilos para el botón */
+.boton-inicio {
+  padding: 10px 16px;
+  background-color: #5c315e;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 0 4px #4b3fff;
+  transition: all 0.3s ease;
+}
+
+.boton-inicio:hover {
+  background-color: #5a4df0;
+  box-shadow: 0 2px #3d2fd8;
+  transform: translateY(-2px);
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pedidos Tullú</title>
+
+  <!-- Enlace al archivo CSS -->
+  <link rel="stylesheet" href="estilospedidos.css" />
+
+  <!-- FontAwesome para íconos -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+</head>
+<body>
+
+  <a href="index.html" class="botonInicio">Inicio</a>
+  <!-- HEADER -->
+  <header class="header">
+    <nav>
+      <button data-carpeta="btnInicio">Inicio</button>
+      <button data-carpeta="tu pedido">Tu pedido</button>
+    </nav>
+  </header>
+
+  <!-- MENÚ DE CATEGORÍAS -->
+  <section id="menu-categorias">
+    <ul>
+      <li data-carpeta="Bandejas personalizadas"><i class="fas fa-box-open"></i> Bandejas personalizadas</li>
+      <li data-carpeta="tazas personalizadas"><i class="fas fa-mug-hot"></i> Tazas personalizadas</li>
+      <li data-carpeta="cajas personalizadas"><i class="fas fa-gift"></i> Cajas personalizadas</li>
+      <li data-carpeta="cuadros"><i class="fas fa-image"></i> Cuadros</li>
+      <li data-carpeta="Papeleria creativa"><i class="fas fa-pencil-alt"></i> Papelería creativa</li>
+      <li data-carpeta="Especiales"><i class="fas fa-star"></i> Especiales</li>
+      <li data-carpeta="caketopper"><i class="fas fa-birthday-cake"></i> Caketopper</li>
+      <li data-carpeta="ramos de rosas eternas"><i class="fas fa-heart"></i> Ramos de rosas eternas</li>
+      <li data-carpeta="Decoracion con globos"><i class="fas fa-party-horn"></i> Decoración con globos</li>
+    </ul>
+  </section>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main>
+    <div class="contenedor-principal">
+      <div id="galeria" class="oculto"></div>
+      <div id="mensaje" class="oculto"></div>
+    </div>
+
+    <div id="contenedor-galeria"></div>
+  </main>
+ 
+  <div class="categorias">
+  <!-- ÍCONO WHATSAPP Y MÉTODOS DE PAGO -->
+  <div class="iconos-pago-inferior">
+    <!-- WhatsApp -->
+   <img src="imagenes/logo whatsapp.png" alt="WhatsApp">
+
+
+
+    <!-- Botones de pago Nequi y Daviplata -->
+    <div class="opciones-pago">
+      <button class="pago-opcion" id="nequi-pago">
+        <img src="imagenes/logo nequi.png" alt="nequi" />
+      </button>
+      <button class="pago-opcion" id="daviplata-pago">
+        <img src="imagenes/logo daviplata.png" alt="daviplata" />
+        Daviplata
+      </button>
+    </div>
+  </div>
+</div>
+
+ 
+  <script defer src="pedidos.js"></script>
+</body>
+</html>
