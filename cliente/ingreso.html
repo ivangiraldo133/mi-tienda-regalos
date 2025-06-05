@@ -5,68 +5,101 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gestión de Pedidos</title>
   <link rel="stylesheet" href="estilos/ingresopedidos.css" />
-
 </head>
+
 <body>
-     <a href="pedidos.html" class="botonInicio">Inicio</a>
 
+  <!-- Botón de regreso -->
+  <a href="pedidos.html" class="botonInicio">Inicio</a>
 
-  <!-- Botones para abrir cada modal -->
+  <!-- Botones de acción -->
   <button class="abrirModal soloAdmin" data-modal="modalNuevoPedido1">📦 Nuevo Pedido 1</button>
-  <button class="abrirModal soloAdmin" data-modal="modalNuevoPedido2">📦 Nuevo Pedido 2</button>
- 
-  <!-- Modal 1 (Ejemplo, puedes duplicar si necesitas 6 distintos) -->
+  <button id="boton-tu-pedido">📋 Mostrar Tabla</button>
+
+  <!-- Mensaje flotante de pagos -->
+  <div id="mensaje-pago" class="mensaje-pago oculto">
+    <p id="texto-mensaje"></p>
+  </div>
+
+  <!-- Sección de la tabla de pedidos (toggle) -->
+  <div id="seccion-pedidos" class="contenedor-tabla oculto">
+    <table id="tabla-estados">
+      <thead>
+        <tr>
+          <th>ID Estado</th>
+          <th>Pedido ID</th>
+          <th>Estado</th>
+          <th>Fecha Creación</th>
+          <th>Última Actualización</th>
+          <th>Comentarios</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Las filas se insertarán dinámicamente con JS -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Secciones ocultas por defecto -->
+  <section id="galeria" class="oculto"></section>
+  <section id="menu-categorias"> ... </section>
+
+  <!-- Modal para nuevo pedido -->
   <div class="modal oculto soloAdmin" id="modalNuevoPedido1" role="dialog" aria-modal="true" aria-labelledby="tituloModalNuevoPedido1">
     <div class="modalContenido">
       <h3 id="tituloModalNuevoPedido1">📋 Formulario de Pedido 1</h3>
       <form class="formPedido" enctype="multipart/form-data">
-        <label>👤 Usuario:
-          <input type="text" name="Usuario"  id="usuario" placeholder="Nombre del cliente" required />
+        <label for="usuario">👤 Usuario:
+          <input type="text" name="Usuario" id="usuario" placeholder="Nombre del cliente" required />
         </label>
-        <label>🏠 Dirección:
+
+        <label for="Direccion">🏠 Dirección:
           <input type="text" name="Direccion" id="Direccion" placeholder="Dirección de entrega" required />
         </label>
-        <label>📞 Teléfono:
+
+        <label for="Telefono">📞 Teléfono:
           <input type="text" name="Telefono" id="Telefono" placeholder="+51 900 000 000" required />
         </label>
-        <label>📝 Descripción del Pedido:
-          <textarea name="DescripcionPedido" id="DescripcionPedido" placeholder=" Descripción producto o servicio" required></textarea>
+
+        <label for="DescripcionPedido">📝 Descripción del Pedido:
+          <textarea name="DescripcionPedido" id="DescripcionPedido" placeholder="Descripción producto o servicio" required></textarea>
         </label>
-        <label>💳 Estado de la Cuenta:
-          <input type="text" name="EstadoCuenta" id="EstadoCuenta" placeholder=" Pagado / Pendiente " />
+
+        <label for="EstadoCuenta">💳 Estado de la Cuenta:
+          <input type="text" name="EstadoCuenta" id="EstadoCuenta" placeholder="Pagado / Pendiente" />
         </label>
-        <label>🚚 Estado del Pedido:
+
+        <label for="EstadoPedido">🚚 Estado del Pedido:
           <input type="text" name="EstadoPedido" id="EstadoPedido" placeholder="En proceso / Entregado" />
         </label>
-        <label>🗒️ Observación:
-          <textarea name="Observacion"  id="Observacion" placeholder="Notas adicionales..."></textarea>
+
+        <label for="Observacion">🗒️ Observación:
+          <textarea name="Observacion" id="Observacion" placeholder="Notas adicionales..."></textarea>
         </label>
-        <label>📎 Adjuntar Comprobante:
-          <input type="file" name="comprobanteAdjunto" accept="comprobanteAdjunto" />
+
+        <label for="comprobanteAdjunto">📎 Adjuntar Comprobante:
+          <input type="file" name="comprobanteAdjunto" id="comprobanteAdjunto" accept="image/*,.pdf" />
         </label>
+
         <div class="botonesFormulario">
           <button type="submit">✅ Enviar Pedido</button>
           <button type="button" class="cerrarModal">❌ Cancelar</button>
         </div>
       </form>
     </div>
-  </div> 
-
-  <div class="modal oculto soloAdmin" id="muestraTabla" role="dialog" aria-modal="true" aria-labelledby="Pedidos">
-  
   </div>
 
-
-
+  <!-- Modal adicional para futura expansión -->
+  <div class="modal oculto soloAdmin" id="muestraTabla" role="dialog" aria-modal="true" aria-labelledby="Pedidos">
+    <!-- Contenido futuro -->
+  </div>
 
   
 
 
-
- 
-  <!-- Puedes duplicar el bloque anterior y cambiar los ID para los modales 2-6 -->
-
+  <!-- Funcionalidad general adicional -->
   <script src="js/ingresopedidos.js" defer></script>
+
 </body>
 </html>
-

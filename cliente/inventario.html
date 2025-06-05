@@ -1,38 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inventario</title>
-  <link rel="stylesheet" href="estilos/inventario.css">
+  <link rel="stylesheet" href="estilos/inventario.css" />
 </head>
 <body>
+  <!-- Botón flotante en la parte superior derecha -->
 <div class="contenedor-boton-inicio">
-  <a href="index.html" class="boton-inicio">Inicio</a>
+  <a href="ingreso.html" class="boton-inicio">🏠 Inicio</a>
 </div>
 
-
-  <div class="container">
+  <main>
     <h1>Registro de Inventario</h1>
     <form id="form-inventario">
-      <input type="text" name="producto" placeholder="Nombre del Producto" required>
-      <input type="number" name="cantidad" placeholder="Cantidad" min="0" required>
-      <input type="text" name="descripcion" placeholder="Descripción">
-      <input type="number" step="0.01" name="precioCompra" placeholder="Precio de Compra" required>
-      <input type="number" step="0.01" name="precioVenta" placeholder="Precio de Venta" required>
-      <select name="estadoProducto" required>
-        <option value="">Estado del Producto</option>
-        <option value="Disponible">Disponible</option>
-        <option value="Agotado">Agotado</option>
-        <option value="Descontinuado">Descontinuado</option>
-      </select>
-      <input type="text" name="marcaProducto" placeholder="Marca del Producto">
-      <input type="text" name="proveedor" placeholder="Proveedor">
-      <input type="text" name="ubicacion" placeholder="Ubicación en Bodega">
+      <div class="campo">
+        <input type="text" name="producto" placeholder="Nombre del Producto" required />
+      </div>
+      <div class="campo">
+        <input type="number" name="cantidad" placeholder="Cantidad" min="0" required />
+      </div>
+      <div class="campo">
+        <input type="text" name="descripcion" placeholder="Descripción" />
+      </div>
+      <div class="campo">
+        <input type="number" step="0.01" name="precioCompra" placeholder="Precio de Compra" required />
+      </div>
+      <div class="campo">
+        <input type="number" step="0.01" name="precioVenta" placeholder="Precio de Venta" required />
+      </div>
+      <div class="campo">
+        <select name="estadoProducto" required>
+          <option value="">Estado del Producto</option>
+          <option value="Disponible">Disponible</option>
+          <option value="Agotado">Agotado</option>
+          <option value="Descontinuado">Descontinuado</option>
+        </select>
+      </div>
+      <div class="campo">
+        <input type="text" name="marcaProducto" placeholder="Marca del Producto" />
+      </div>
+      <div class="campo">
+        <input type="text" name="proveedor" placeholder="Proveedor" />
+      </div>
+      <div class="campo">
+        <input type="text" name="ubicacion" placeholder="Ubicación en Bodega" />
+      </div>
       <button type="submit" class="btn-3d">Guardar Producto</button>
     </form>
     <div id="mensaje"></div>
-  </div>
+  </main>
+
   <script src="js/inventario.js"></script>
 </body>
 </html>

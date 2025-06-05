@@ -1,144 +1,121 @@
+
 body {
-  background: url('../imagenes/index/logo 6.png') no-repeat center center fixed;
+  background: url('../imagenes/index/logo.png') no-repeat center center fixed;
   background-size: cover;
   margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #c494f8;
-  color:blanchedalmond;
+  height: 100vh;
 }
 
+
+
+/* Contenedor principal */
 main {
-  max-width: 800px;
+  max-width: 600px; /* más estrecho para disposición vertical */
   margin: 50px auto;
   padding: 30px;
-  background: #ffffff;
+  background: #5c315e;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
 }
 
+/* Título */
 h1 {
   text-align: center;
   margin-bottom: 30px;
-  color: #5c315e;
-  text-shadow: 1px 1px 2px #ccc;
+  color: blanchedalmond;
+  text-shadow: 1px 1px 2px#5c315e;
 }
 
+/* Formulario en columna */
 form {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
+/* Contenedor individual de campo */
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Etiquetas (si las usas) */
+.campo label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Inputs y selects modernos */
 form input, form select {
   padding: 12px;
   font-size: 16px;
   border: 1px solid #dcdfe3;
-  border-radius: 8px;
+  border-radius: 10px;
   background: #fff;
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05),
+              3px 3px 8px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease;
 }
+
+form input:focus, form select:focus {
+  outline: none;
+  border-color: blanchedalmond;
+  box-shadow: 0 0 8px rgba(92, 49, 94, 0.4);
+}
+
+/* Botón con efecto 3D reducido */
 form button {
-  grid-column: span 2;
-  padding: 8px 16px;
-  font-size: 14px;
-  background: #5c315e; /* Color verde sólido moderno */
-  color: white;
+  align-self: flex-end; /* lo coloca alineado a la derecha */
+  width: 180px;          /* más pequeño */
+  padding: 10px 20px;
+  font-size: 15px;
+  background: linear-gradient(145deg, #5bd860, #4CAF50);
+  color: #c494f8;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* sombra suave 3D */
-  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 form button:hover {
-  background: #2ecc71; /* Verde más brillante al pasar el mouse */
+  background: #2ecc71;
 }
 
 form button:active {
   transform: translateY(2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+/* Contenedor del botón en la parte superior derecha */
+.contenedor-boton-inicio {
+  position: fixed; /* fijo en la pantalla */
+  top: 20px;
+  right: 20px;
+  z-index: 999;
 }
 
-
-form button:hover {
-  background: linear-gradient(145deg, #5bd860, #4CAF50);
-}
-
-form button:active {
-  box-shadow: 0 2px #2e7d32;
-  transform: translateY(2px);
-}
-
-
-form button:hover {
-  background: linear-gradient(145deg, #5bd860, #4CAF50);
-}
-
-form button:active {
-  box-shadow: 0 2px #2e7d32;
-  transform: translateY(3px);
-}
-
-#lista-inventario {
-  margin-top: 40px;
-  overflow-x: auto;
-}
-
-/* Tabla estilo Word moderna */
-.tabla-inventario {
-  width: 100%;
-  border-collapse: collapse;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.tabla-inventario th, .tabla-inventario td {
-  padding: 14px 16px;
-  border-bottom: 1px solid #e0e0e0;
-  text-align: left;
-}
-
-.tabla-inventario th {
-  background: #5c315e;
-  color: white;
-  font-weight: 600;
-}
-
-.tabla-inventario tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-.tabla-inventario tr:hover {
-  background-color: #eafbea;
-  transition: background 0.3s ease;
-}
- /* butom de enlace a pagina principal*/
+/* Botón moderno con efecto 3D */
 .boton-inicio {
   display: inline-block;
-  margin-bottom: 20px;
-  padding: 8px 16px;
+  padding: 10px 20px;
   font-size: 14px;
-  background: #5c315e;
+  font-weight: 600;
+  background: linear-gradient(145deg, #5c315e, #7b3c82);
   color: white;
   text-decoration: none;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  transition: background 0.2s ease, transform 0.2s ease;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
 .boton-inicio:hover {
-  background: #56ccf2;
+  background: linear-gradient(145deg, #56ccf2, #2d9cdb);
+  transform: translateY(-2px);
 }
 
 .boton-inicio:active {
   transform: translateY(2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-.contenedor-boton-inicio {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }

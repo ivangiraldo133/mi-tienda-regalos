@@ -1,19 +1,41 @@
-DROP TABLE IF EXISTS ESTADO_PEDIDOS;
--- tabla de revision de pedidos 
-CREATE TABLE ESTADO_PEDIDOS (
-    EstadoPedidoID SERIAL PRIMARY KEY,                             -- ID único autoincremental para el estado
-    PedidoID INT NOT NULL,                                          -- ID del pedido (podría ser una clave foránea si hay una tabla de pedidos)
-    Estado VARCHAR(50) CHECK (Estado IN ('Pendiente', 'Procesando', 'Enviado', 'Entregado', 'Cancelado')) NOT NULL,  -- Estado del pedido
-    FechaCreacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,              -- Fecha de creación del registro
-    FechaActualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,         -- Fecha de la última actualización
-    Comentarios TEXT                                               -- Comentarios adicionales sobre el estado del pedido
+CREATE TABLE estado_pedidos (
+  usuario_id TEXT PRIMARY KEY,
+  direccion TEXT NOT NULL,
+  telefono VARCHAR(15),
+  descripcion_pedido TEXT,
+  estado_cuenta TEXT,
+  estado_pedido TEXT,
+  observacion TEXT,
+  adjuntar_comprobante TEXT
 );
-INSERT INTO ESTADO_PEDIDOS 
-(PedidoID, Estado, Comentarios)
-VALUES 
-(1, 'Pendiente', 'Pedido recibido, esperando confirmación de pago.');
 
--- Actualizar el estado de un pedido
-UPDATE ESTADO_PEDIDOS
-SET Estado = 'Enviado', FechaActualizacion = CURRENT_TIMESTAMP, Comentarios = 'Pedido enviado al cliente.'
-WHERE PedidoID = 1;
+SELECT * 
+FROM estado_pedidos
+WHERE usuario_id IN ('2', '3', '4', '5', '6', '8', '9', '10');
+
+
+-- Inserción de pedido de prueba
+INSERT INTO estado_pedidos (
+  usuario_id,
+  direccion,
+  telefono,
+  descripcion_pedido,
+  estado_cuenta,
+  estado_pedido,
+  observacion,
+  adjuntar_comprobante
+) VALUES (
+  'USR001',
+  'Calle 123',
+  '3200000000',
+  'Pedido de ancheta',
+  'Debe',
+  'En proceso',
+  'Sin observaciones',
+  'comprobante.png'
+);
+
+
+
+
+

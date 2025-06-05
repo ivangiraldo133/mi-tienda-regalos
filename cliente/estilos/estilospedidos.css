@@ -10,15 +10,14 @@
    GENERAL
 ---------------------------------------------- */
 body {
-  background: url('../imagenes/index/logo 4.png ') no-repeat center center fixed;
+  font-family: var(--fuente-principal);
+  background-color: var(--color-secundario);
+  background: url('../imagenes/index/logo 4.png') no-repeat center center fixed;
   background-size: cover;
   margin: 0;
-  height: 50vh;
-  font-family: var(--fuente-principal);
-  margin: 0;
   padding: 0;
-  background-color: #c494f8;
   color: #333;
+  height: 50vh;
 }
 
 /* ----------------------------------------------
@@ -45,7 +44,6 @@ nav {
   gap: 12px;
 }
 
-
 nav button {
   padding: 10px 18px;
   background: #fff;
@@ -56,43 +54,50 @@ nav button {
   font-size: 15px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 nav button:hover {
   background-color: var(--color-hover);
 }
 
+nav button:first-child,
+nav button:nth-child(2) {
+  margin-right: 40px;
+}
+
 /* ----------------------------------------------
    GALERÍA
 ---------------------------------------------- */
 #galeria {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
   padding: 110px 20px 40px;
 }
 
 .item {
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
   text-align: center;
   padding: 20px;
-  transition: transform 0.25s ease;
+  max-width: 240px;
+  transition: transform 0.3s ease;
 }
 
 .item:hover {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 .item img {
   max-width: 100%;
   border-radius: 12px;
   margin-bottom: 12px;
+  object-fit: contain;
 }
 
-/* Botones dentro de cada item */
 .item button {
   width: 100%;
   margin: 8px 0;
@@ -103,6 +108,9 @@ nav button:hover {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .item button i {
@@ -152,7 +160,7 @@ nav button:hover {
   flex: 1 1 180px;
   max-width: 220px;
   background-color: #fff;
-  padding: 28px 18px 20px; /* más espacio arriba */
+  padding: 28px 18px 20px;
   border-radius: 18px;
   font-weight: 700;
   font-size: 17px;
@@ -208,7 +216,6 @@ nav button:hover {
   filter: drop-shadow(0 8px 12px rgba(92, 49, 94, 0.4));
 }
 
-
 /* ----------------------------------------------
    MAIN
 ---------------------------------------------- */
@@ -237,43 +244,53 @@ main {
   border-radius: 10px;
   text-align: center;
   max-width: 600px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* ----------------------------------------------
+   OCULTAR ELEMENTOS
+---------------------------------------------- */
 .oculto {
   display: none;
 }
 
 /* ----------------------------------------------
-   ICONOS FIJOS INFERIORES
+   BARRA SUPERIOR ICONOS
 ---------------------------------------------- */
-.icono-pago-inferior .numero-pago {
-  position: absolute;
-  bottom: 70px;
-  left: 50%;
-  transform: translate(-50%, 10px);
-  background: rgba(255, 255, 255, 0.85); /* efecto glass ligero */
-  backdrop-filter: blur(6px);
-  color: var(--color-primario);
-  padding: 8px 16px;
-  border-radius: 16px;
-  font-size: 14px;
-  font-weight: 600;
-  white-space: nowrap;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  border: 1px solid rgba(92, 49, 94, 0.2);
+.barra-superior-iconos {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  z-index: 1001;
 }
 
-.icono-pago-inferior.mostrar .numero-pago {
-  opacity: 1;
-  transform: translate(-50%, 0);
-  pointer-events: auto;
+.barra-superior-iconos img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
 }
-/*iconos nequi y daviplata*/
-/* Contenedor de los iconos de pago */
+
+.barra-superior-iconos img:hover {
+  transform: scale(1.1);
+}
+
+.barra-superior-iconos button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* ----------------------------------------------
+   ICONOS DE PAGO INFERIOR
+---------------------------------------------- */
 .iconos-pago-inferior {
   position: fixed;
   bottom: 20px;
@@ -283,38 +300,74 @@ main {
   align-items: flex-end;
 }
 
-/* Estilo general para los botones de pago */
+/* Contenedor general pago */
 .opciones-pago {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-/* Botón de pago */
+/* Estilo base común para botones pago */
 .pago-opcion {
-  background-color: #c494f8; /* Color de fondo similar a WhatsApp */
-  border: none;
-  padding: 20px;
-  border-radius: 5px;
-  font-size: 10px;
-  color: white;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  padding: 12px;
+  width: 110px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
   cursor: pointer;
-  width: 150px;
-  text-align: center;
-  justify-content: center;
-}
-.pago-opcion img {
-  width: 60px;  /* Aumenta el ancho */
-  height: auto;  /* Mantiene la proporción original */
-  object-fit: contain;  /* Evita que se deformen */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Efecto hover para los botones */
-/* Barra lateral inferior derecha */
+.pago-opcion:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+}
+/*cuadrar tamaño de logo nequi y daviplata*/
+.pago-opcion img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: 8px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #ffffff, #f0e8ff);
+  padding: 5px;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    inset 0 2px 4px rgba(255, 255, 255, 0.6),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Tamaño mayor para Nequi y Daviplata */
+.pago-opcion.nequi img,
+.pago-opcion.daviplata img {
+  width: 30px;   /* más grande que 30px */
+  height: 30px;
+  padding: 8px;  /* aumentar padding para mejor espacio */
+}
+
+.pago-opcion:hover img {
+  transform: scale(1.1) rotate(3deg);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.25),
+    inset 0 3px 6px rgba(255, 255, 255, 0.75),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Estilo especial para Daviplata */
+.pago-opcion.daviplata img {
+  width: 90px;
+}
+
+/* ----------------------------------------------
+   BARRA LATERAL INFERIOR DERECHA
+---------------------------------------------- */
 .barra-pagos {
   position: fixed;
   bottom: 10px;
@@ -326,7 +379,6 @@ main {
   z-index: 1000;
 }
 
-/* Contenedor vertical para íconos */
 .iconos-derecha {
   display: flex;
   flex-direction: column;
@@ -334,61 +386,143 @@ main {
   gap: 10px;
 }
 
-/* Ícono de WhatsApp */
+/* Ícono WhatsApp flotante */
 .whatsapp-fijo img {
   width: 60px;
   height: auto;
-  object-fit: contain;
   border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
 }
 
-/* Botones de Nequi y Daviplata */
-.opciones-pago {
-  display: flex;
-  gap: 10px;
+.whatsapp-fijo img:hover {
+  transform: scale(1.15);
 }
 
-.pago-opcion {
-  background-color: #c494f8;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 10px;
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
-  width: 130px;
-  justify-content: center;
-}
-
-.pago-opcion img {
-  width: 70px;
-  height: auto;
-  object-fit: contain;
-}
-
-/* Mensaje flotante centrado para número de pago */
-.mensaje-pago {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #4a274c;
-  color: white;
-  padding: 20px 30px;
-  border-radius: 10px;
-  font-size: 18px;
-  z-index: 2000;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Clase para ocultar elementos */
-.oculto {
+/* ----------------------------------------------
+   MODAL
+---------------------------------------------- */
+.modal {
   display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  backdrop-filter: blur(3px);
+  justify-content: center;
+  align-items: center;
 }
+
+.modal-contenido {
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 15px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  text-align: center;
+  position: relative;
+}
+
+.modal-contenido h2 {
+  margin-bottom: 20px;
+  color: var(--color-primario);
+}
+
+.modal-contenido p {
+  margin-bottom: 30px;
+  color: #444;
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--color-primario);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.cerrar-modal:hover {
+  color: var(--color-acento);
+}
+
+/* ----------------------------------------------
+   FOOTER (si aplicable)
+---------------------------------------------- */
+/* footer {
+  background-color: var(--color-primario);
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+} */
+
+/* ----------------------------------------------
+   MEDIA QUERIES (ejemplo para responsividad)
+---------------------------------------------- */
+@media (max-width: 768px) {
+  #menu-categorias ul {
+    gap: 30px;
+  }
+  
+  #menu-categorias li {
+    max-width: 160px;
+    padding: 20px 14px;
+  }
+  
+  nav {
+    gap: 8px;
+  }
+  
+  nav button {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+  
+  .item {
+    max-width: 180px;
+    padding: 16px;
+  }
+  
+  .item button {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
+/* Estilo de la tabla */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  background: #c494f8;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado de la tabla */
+thead {
+  background: linear-gradient(to right, #5c4def, #6a5cff);
+  color: #c494f8;
+  text-align: center;
+}
+
+thead th {
+  padding: 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  border-bottom: 2px solid #c494f8;
+}
+
 
 
 

@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Obtener todos los botones para abrir modales
+
+  // --- Funcionalidad para abrir/cerrar modales y enviar formularios dentro de modales ---
   const abrirModalBtns = document.querySelectorAll('.abrirModal');
 
   abrirModalBtns.forEach(btn => {
@@ -7,35 +8,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById(modalId);
     if (!modal) return;
 
-    // Botón para cerrar modal dentro de ese modal
     const cerrarBtn = modal.querySelector('.cerrarModal');
-    // Obtener el formulario dentro del modal
     const form = modal.querySelector('form');
 
-    // Abrir modal al hacer clic en el botón
+    // Abrir modal
     btn.addEventListener('click', () => {
       modal.classList.add('mostrar');
       modal.classList.remove('oculto');
     });
 
-    // Cerrar modal al hacer clic en el botón cancelar
+    // Cerrar modal
     cerrarBtn.addEventListener('click', () => {
       modal.classList.remove('mostrar');
       modal.classList.add('oculto');
       form.reset();
     });
 
-    // Enviar formulario
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
+    // Enviar formulario del modal
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
       const formData = new FormData(form);
 
       try {
-        const response = await fetch('/api/pedido', {
-          method: 'POST',
-          body: formData
-        });
+      const response = await fetch('/api/pedidos', {
+  method: 'POST',
+  body: formData,
+});
+
+                const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          throw new Error('La respuesta no es JSON válida');
+        }
 
         const result = await response.json();
 
@@ -52,25 +55,48 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('❌ Ocurrió un error al enviar el pedido');
       }
     });
+  });
 
+  // --- Toggle de la tabla de pedidos ---
+  const botonPedido = document.getElementById('boton-tu-pedido');
+  const seccionPedidos = document.getElementById('seccion-pedidos');
+  const galeria = document.getElementById('galeria');
+  const menuCategorias = document.getElementById('menu-categorias');
 
-document.getElementById("registroForm")?.addEventListener("submit", async function (e) {
-  e.preventDefault();
+  if (botonPedido) {
+    botonPedido.addEventListener('click', () => {
+      const estaOculta = seccionPedidos.classList.toggle('oculto');
+      const estaVisible = !estaOculta;
 
-  const usuario = document.getElementById("Usuario").value.trim();
-  const direccion = document.getElementById("Direccion").value.trim();
-  const telefono = document.getElementById("telefono").value.trim();
-  const descripcionPedido = document.getElementById("DescripcionDelPedido").value.trim();
-  const estadoCuenta = document.getElementById("EstadoDeLaCuenta").value;
-  const estadoPedido = document.getElementById("EstadoDelPedido").value;
-  const observacion = document.getElementById("observacion").value;
-  const comprobanteAdjunto = document.getElementById("comprobanteAdjunto").value;
+      if (estaVisible) {
+        galeria?.classList.add('oculto');
+        menuCategorias?.classList.add('oculto');
+        botonPedido.textContent = "❌ Ocultar Tabla";
+      } else {
+        galeria?.classList.remove('oculto');
+        menuCategorias?.classList.remove('oculto');
+        botonPedido.textContent = "📋 Mostrar Tabla";
+      }
+    });
+  }
 
-  try {
-    const res = await fetch("http://localhost:3000/pedidos.html", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
+  // --- Formulario principal de registro (fuera del modal) ---
+  const registroForm = document.getElementById("registroForm");
+  if (registroForm) {
+    registroForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const usuario = document.getElementById("Usuario").value.trim();
+      const direccion = document.getElementById("Direccion").value.trim();
+      const telefono = document.getElementById("telefono").value.trim();
+      const descripcionPedido = document.getElementById("DescripcionDelPedido").value.trim();
+      const estadoCuenta = document.getElementById("EstadoDeLaCuenta").value;
+      const estadoPedido = document.getElementById("EstadoDelPedido").value;
+      const observacion = document.getElementById("observacion").value;
+      const comprobanteInput = document.getElementById("comprobanteAdjunto");
+      const comprobanteAdjunto = comprobanteInput?.files[0] || null;
+
+      const body = {
         usuario,
         direccion,
         telefono,
@@ -78,22 +104,33 @@ document.getElementById("registroForm")?.addEventListener("submit", async functi
         estadoCuenta,
         estadoPedido,
         observacion,
-        comprobanteAdjunto
-      }),
+        comprobanteAdjunto: comprobanteAdjunto ? comprobanteAdjunto.name : null
+      };
+
+      try {
+        const res = await fetch("http://localhost:3000/ingreso.html", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          alert(`¡Registro exitoso! Pedido para: ${data.ingreso}`);
+          e.target.reset();
+        } else {
+          alert(data.error || "Error al registrar.");
+        }
+      } catch (error) {
+        alert("Error en el servidor.");
+        console.error(error);
+      }
     });
-
-    const data = await res.json();
-
-    if (res.ok) {
-      alert(`¡Registro exitoso! Pedido para: ${data.usuario}`);
-      e.target.reset();
-    } else {
-      alert(data.error || "Error al registrar el pedido.");
-    }
-  } catch (error) {
-    alert("Error en el servidor.");
-    console.error(error);
   }
-});
 
-  })
+  // --- Cargar datos a tabla (aquí debe ir tu lógica para cargar datos) ---
+  const tbody = document.querySelector('#tbody');
+  // Aquí debes agregar la lógica si quieres cargar datos dinámicamente
+
+});
