@@ -6,172 +6,13 @@ body {
 }
 
 .logo {
-  width: 200px;
-  display: block;
-  margin: 20px auto;
-}
-
-
-/* Estilos del modal */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(10, 10, 25, 0.7); /* Fondo más oscuro y ligeramente azulado para más profundidad */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  z-index: 1000;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.modal.mostrar {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.modalContenido {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 3rem 3.5rem;
-  border-radius: 25px;
-  width: 90%;
-  max-width: 600px;
-  box-shadow:
-    0 15px 35px rgba(0, 0, 0, 0.25),
-    inset 0 0 10px rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  animation: scaleIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
-  transform-style: preserve-3d;
-  perspective: 1000px;
-  max-height: 90vh;
-  overflow-y: auto; /* Activa el scroll en el contenido si es necesario */
-  scrollbar-width: thin;
-  scrollbar-color: #bbb #eee;
-}
-
-@keyframes scaleIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.9) translateZ(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateZ(0);
-  }
-}
-
-/* Estilos de los botones */
-.botonesFormulario {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 2.5rem;
-}
-
-button {
-  background-color: #5c4def;
-  color: white;
-  padding: 1rem 2.5rem;
-  border: none;
-  border-radius: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background-color 0.35s ease, box-shadow 0.35s ease, transform 0.25s ease;
-  box-shadow:
-    0 8px 20px rgba(92, 77, 239, 0.45),
-    0 0 10px rgba(92, 77, 239, 0.6);
-  will-change: transform;
-}
-
-button:hover {
-  background-color: #483bd9;
-  box-shadow:
-    0 14px 28px rgba(72, 59, 217, 0.7),
-    0 0 18px rgba(72, 59, 217, 0.85);
-  transform: translateY(-5px) scale(1.05);
-}
-
-button:active {
-  transform: translateY(0) scale(0.98);
-  box-shadow:
-    0 7px 14px rgba(72, 59, 217, 0.6),
-    0 0 8px rgba(72, 59, 217, 0.7);
-}
-
-button:focus {
-  outline: none;
-  box-shadow:
-    0 0 15px 3px rgba(92, 77, 239, 0.9);
-}
-
-/* Estilos de los formularios */
-.formPedido {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-label {
-  font-weight: 600;
-  color: #2c2c54;
-  font-size: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-input,
-textarea {
-  padding: 0.8rem 1rem;
-  border: 1.5px solid rgba(92, 77, 239, 0.4);
-  border-radius: 12px;
-  font-size: 1rem;
-  background: #f9f9ff;
-  color: #333;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-input:focus,
-textarea:focus {
-  border-color: #5c4def;
-  box-shadow: 0 0 8px rgba(92, 77, 239, 0.4);
-  outline: none;
-}
-
-textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-
-/* Estilo de la barra de desplazamiento */
-.modalContenido::-webkit-scrollbar {
-  width: 6px;
-}
-
-.modalContenido::-webkit-scrollbar-thumb {
-  background-color: rgba(92, 77, 239, 0.4);
-  border-radius: 8px;
-}
-
-.modalContenido::-webkit-scrollbar-track {
-  background: transparent;
-}
-.logo {
-  width: 150px; /* Ajusta el tamaño */
+  width: 150px;
   height: auto;
   margin: 20px;
   display: block;
 }
-/* boton de inicio*/
+
+/* Botón de inicio */
 .botonInicio {
   position: fixed;
   top: 20px;
@@ -192,101 +33,224 @@ textarea {
   transform: scale(1.05);
 }
 
-/* Contenedor de la tabla */
-.contenedor-tabla {
-  padding: 2rem;
-  max-width: 1000px;
-  margin: 60px auto;
-  background: rgba(255, 255, 255, 0.92);
+/* Contenedor del formulario */
+.formulario {
+  padding: 1rem;
+  max-width: 800px;
+  margin: 20px auto;
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.2),
     inset 0 0 10px rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  animation: fadeInUp 0.5s ease-out;
   transform-style: preserve-3d;
   perspective: 1000px;
-  animation: fadeInUp 0.5s ease-out;
-  overflow-x: auto;
 }
 
-/* Estilo de la tabla */
-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  font-family: 'Segoe UI', sans-serif;
-  color: #333;
-  background: #c494f8;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* Encabezado de la tabla */
-thead {
-  background: linear-gradient(to right, #5c4def, #6a5cff);
-  color: #c494f8;
-  text-align: center;
-}
-
-thead th {
-  padding: 1rem;
-  font-weight: 700;
-  font-size: 1rem;
-  border-bottom: 2px solid #c494f8;
-}
-
-/* Filas */
-tbody tr {
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-tbody tr:hover {
-  background-color: #c494f8;
-  transform: scale(1.01);
-}
-
-tbody td {
-  padding: 0.9rem 1rem;
-  text-align: center;
-  border-bottom: 1px solid #c494f8;
-  font-size: 0.95rem;
-}
-
-/* Botones de acción */
-.btnEliminar {
-  background-color: #ff4b5c;
-  border: none;
-  color: white;
-  padding: 0.5rem 0.8rem;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  box-shadow: 0 4px 10px rgba(255, 75, 92, 0.4);
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btnEliminar:hover {
-  background-color: #e04350;
-  transform: scale(1.05);
-}
-
-/* Animación de aparición */
+/* Animación */
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-.oculto {
-  display: none;
+
+/* Estilos del formulario */
+.formPedido {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 
+/* Agrupación de campos en dos columnas */
+.fila-doble {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
 
+.fila-doble label {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 
+label {
+  font-weight: 600;
+  color: #2c2c54;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 
+input,
+textarea {
+  padding: 0.5rem 0.8rem;
+  /* Menor altura */
+  border: 1.5px solid rgba(92, 77, 239, 0.4);
+  border-radius: 12px;
+  font-size: 1rem;
+  background: #f9f9ff;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #5c4def;
+  box-shadow: 0 0 8px rgba(92, 77, 239, 0.4);
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.botonesFormulario {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.botonesFormulario button {
+  flex: 1 1 50%;
+  width: 50%;
+}
+
+button {
+  background-color: #5c4def;
+  color: white;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.35s ease, box-shadow 0.35s ease, transform 0.25s ease;
+  box-shadow:
+    0 8px 20px rgba(92, 77, 239, 0.45),
+    0 0 10px rgba(92, 77, 239, 0.6);
+}
+
+button:hover {
+  background-color: #483bd9;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow:
+    0 14px 28px rgba(72, 59, 217, 0.7),
+    0 0 18px rgba(72, 59, 217, 0.85);
+}
+
+button:active {
+  transform: scale(0.98);
+  box-shadow:
+    0 7px 14px rgba(72, 59, 217, 0.6),
+    0 0 8px rgba(72, 59, 217, 0.7);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 15px 3px rgba(92, 77, 239, 0.9);
+}
+
+/* Responsive: una columna en pantallas pequeñas */
+@media (max-width: 600px) {
+  .fila-doble {
+    flex-direction: column;
+  }
+
+  .fila-doble label {
+    flex: 1 1 100%;
+  }
+
+  .formulario {
+    margin: 20px;
+    padding: 1.5rem;
+  }
+
+  .botonesFormulario {
+    flex-direction: column;
+  }
+
+  .botonesFormulario button {
+    width: 100%;
+  }
+}
+
+/* Contenedor */
+.contenedor-tabla {
+  margin: 2rem auto;
+  width: 95%;
+  max-width: 1200px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  padding: 1rem;
+  border: 1px solid #ddd;
+}
+
+/* Tabla */
+#tabla-estados {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Encabezado */
+#tabla-estados thead {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+#tabla-estados thead th {
+  padding: 12px;
+  border-bottom: 2px solid #dee2e6;
+  text-align: left;
+}
+
+/* Filas */
+#tabla-estados tbody tr {
+  border-bottom: 1px solid #e9ecef;
+  transition: background-color 0.3s ease;
+}
+
+#tabla-estados tbody tr:hover {
+  background-color: #f1f3f5;
+}
+
+/* Celdas */
+#tabla-estados td {
+  padding: 10px;
+  vertical-align: top;
+  color: #212529;
+}
+
+/* Acciones */
+#tabla-estados td button {
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  margin-right: 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 0.9rem;
+}
+
+#tabla-estados td button:hover {
+  background-color: #4e46d4;
+}

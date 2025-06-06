@@ -55,11 +55,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const imagenes = {
   "Bandejas personalizadas": [
-    { src: "imagenes/Bandejas personalizadas/Bandeja 1.jpg", desc: "Caja Floral 1", descripcionProducto: "Hermosa caja de madera decorada con panel diseñado con mensaje al gusto del cliente, mariposa y cinta de seda, incluye 9 Rosas eternas del color que elijas y 4 bombones de chocolate",precio:"80.000"},
-    { src: "imagenes/Bandejas personalizadas/Bandeja 2.jpg", desc: "Ancheta Polaroid 2", descripcionProducto: "Preciosa caja de madera decorada con fotos polaroid y globo Foil, Croassant en desechable, Tea Hatsu 250 ml, 1 paquete de barquillos Piazza, 1 ponquesito Gusto tart cake y Gusto Midi roll, barra de chocolate Hersheys Milk, Bianchi choco galletas y Tarjeta",precio:"60.000"},
+    { src: "imagenes/Bandejas personalizadas/Bandeja 1.jpg", desc: "Caja Floral 1", descripcionProducto: "Hermosa caja de madera decorada con panel diseñado con mensaje al gusto del cliente, mariposa y cinta de seda, incluye 9 Rosas eternas del color que elijas y 4 bombones de chocolate", precio: "80.000" },
+    { src: "imagenes/Bandejas personalizadas/Bandeja 2.jpg", desc: "Ancheta Polaroid 2", descripcionProducto: "Preciosa caja de madera decorada con fotos polaroid y globo Foil, Croassant en desechable, Tea Hatsu 250 ml, 1 paquete de barquillos Piazza, 1 ponquesito Gusto tart cake y Gusto Midi roll, barra de chocolate Hersheys Milk, Bianchi choco galletas y Tarjeta", precio: "60.000" },
     { src: "imagenes/Bandejas personalizadas/Bandeja 3.jpg", desc: "Frutty Amor 3", descripcionProducto: "Caja Madera decorada con globo Foil con lazo de cinta de seda, 4 flores artificiales y Oso de Peluche pequeño, 1 barra de Chocolate Jumbo Jet Maní, frutas (fresa y uvas) empacadas en Postreras desechables y Manzana", precio: "70.000" },
     { src: "imagenes/Bandejas personalizadas/Bandeja 4.jpg", desc: "Bandeja Reina 4", descripcionProducto: "Hermosa bandeja  decorada con mantel de tela de Organza, cinta de Seda, Cinta de Borlas, Luces Led y globo Foil Corona, Desechable con Ponque Pingüino Maricela y velita, frasco con maní, Labial Mágico, Crema corporal, Rubor Mayomi, Galletas Canastitas de Mora, Champaña Magestic, Chocobombones Bianchi", precio: "80.000" },
-   
+
   ],
   "tazas personalizadas": [
     { src: "imagenes/tazas personalizadas/taza 1.jpg", desc: "taza 1", descripcionProducto: "Hermosas tazas personalizables con tu nombre para cualquier  ocasión", precio: "25.000" },
@@ -88,7 +88,7 @@ const imagenes = {
     { src: "imagenes/cuadros/cuadro 9.jpg", desc: "Cuadro Dedicatoria  9", descripcionProducto: "Se puede poner diferentes diseños  al gusto del cliente", precio: "40.000" },
     { src: "imagenes/cuadros/cuadro 10.jpg", desc: "Cuadro 10", descripcionProducto: "Se puede poner diferentes diseños  al gusto del cliente", precio: "50.000" },
     { src: "imagenes/cuadros/cuadro 11.jpg", desc: "Cuadro de aniversario 11", descripcionProducto: "Se puede poner diferentes diseños  al gusto del cliente", precio: "40.000" },
-    
+
   ],
   "Papeleria creativa": [
     { src: "imagenes/Papeleria creativa/botella 1.jpg", desc: "Botellas de agua 1", descripcionProducto: "Botellas de agua personalizadas para cumpleaños al gusto del cliente según la personalización varia su precio", precio: "2.000" },
@@ -103,11 +103,11 @@ const imagenes = {
     { src: "imagenes/Papeleria creativa/recordatorio 7.jpg", desc: "Recordatorio 7", descripcionProducto: "Recordatorio para el día del maestro un dulce con un mensaje en forma de lápiz es personalizable para cualquier ocasión", precio: "1.000" },
     { src: "imagenes/Papeleria creativa/recordatorio 8.jpg", desc: "Recordatorio 8", descripcionProducto: "Recordatorio con dulcería variable personalizables para cualquier ocasión ", precio: "6.000" },
     { src: "imagenes/Papeleria creativa/recordatorio 10.jpg", desc: "Recordatorio  10", descripcionProducto: "", precio: "2.000" },
-    { src: "imagenes/Papeleria creativa/vaso 1.jpg", desc: "Vaso 1", descripcionProducto: "Vaso personalizado con dulcería surtida resaltadores y lapiceros y con una base donde poner el vaso personalizable a gusto del cliente", precio: "20.000" }, 
+    { src: "imagenes/Papeleria creativa/vaso 1.jpg", desc: "Vaso 1", descripcionProducto: "Vaso personalizado con dulcería surtida resaltadores y lapiceros y con una base donde poner el vaso personalizable a gusto del cliente", precio: "20.000" },
     { src: "imagenes/Papeleria creativa/vaso 2.jpg", desc: "Vaso 2", descripcionProducto: "Vasos personalizados con dulcería surtida a gusto del cliente para cualquier ocasión ", precio: "5.000" },
     { src: "imagenes/Papeleria creativa/vaso 3.jpg", desc: "Vaso 3", descripcionProducto: "Vasos personalizados para cualquier ocasión según pedido del cliente precio varia", precio: "2.000" },
-  
-    
+
+
   ],
   "Especiales": [
     { src: "imagenes/Especiales/imagen 1.jpg", desc: "Velas personalizadas 1", descripcionProducto: "son unas velas personalizadas con un mensaje lleva dedicatoria para cualquier ocasión", precio: "4.000" },
@@ -119,8 +119,8 @@ const imagenes = {
     { src: "imagenes/Especiales/imagen 15.jpg", desc: "Caja birrete 15", descripcionProducto: "Birrete personalizado al gusto de cliente se hace con cartulina o con diferentes materiales según el pedido del cliente ", precio: "3.000" },
     { src: "imagenes/Especiales/imagen 17.jpg", desc: "Kit maestro personalizado 17", descripcionProducto: "Tiene una libreta un marcador y un borrador todo personalizado", precio: "30.000" },
     { src: "imagenes/Especiales/imagen 18.jpg", desc: "Kit borrador y marcador 18", descripcionProducto: "Kit personalizable para cualquier ocasión según las necesidades del cliente", precio: "12.000" },
-    
-    
+
+
   ],
   "caketopper": [
     { src: "imagenes/caketopper/caketopper 1.jpg", desc: "caketopper 1", descripcionProducto: "Caketopper son personalizables para cualquier tipo de pastel según la necesidad del cliente se pueden hacer de diferentes motivos según pedido del cliente", precio: "15.000" },
@@ -138,9 +138,9 @@ const imagenes = {
     { src: "imagenes/caketopper/caketopper 15.jpg", desc: "caketopper 15", descripcionProducto: "Caketopper son personalizables para cualquier tipo de pastel según la necesidad del cliente se pueden hacer de diferentes motivos según pedido del cliente", precio: "15.000" },
     { src: "imagenes/caketopper/caketopper 17.jpg", desc: "caketopper 17", descripcionProducto: "Caketopper son personalizables para cualquier tipo de pastel según la necesidad del cliente se pueden hacer de diferentes motivos según pedido del cliente", precio: "15.000" },
     { src: "imagenes/caketopper/caketopper 18.jpg", desc: "caketopper 18", descripcionProducto: "Caketopper son personalizables para cualquier tipo de pastel según la necesidad del cliente se pueden hacer de diferentes motivos según pedido del cliente", precio: "15.000" },
-   
-   
-],
+
+
+  ],
   "ramos de rosas eternas": [
     { src: "imagenes/ramos de rosas eternas/ramo 1.jpg", desc: "Ramo de rosas eternas 1", descripcionProducto: "Es un ramo que lleva 6 rosas amarrillas lleva un estuche  de lapiceros de todos los colores y 4 fotos ", precio: "80.000" },
     { src: "imagenes/ramos de rosas eternas/ramo 2.jpg", desc: "Ramo de una rosa 2", descripcionProducto: "es una rosa color azul con un mensaje personalizado", precio: "15.000" },
@@ -218,37 +218,37 @@ document.addEventListener('DOMContentLoaded', () => {
     numero.classList.toggle("mostrar");
   };
 
-    // Pedidos.js
-const modal = document.getElementById("modal-pago");
-const mensajePago = document.getElementById("mensaje-pago");
-const cerrarModal = document.querySelector(".cerrar-modal");
+  // Pedidos.js
+  const modal = document.getElementById("modal-pago");
+  const mensajePago = document.getElementById("mensaje-pago");
+  const cerrarModal = document.querySelector(".cerrar-modal");
 
-document.getElementById("nequi-pago").addEventListener("click", () => {
-  mensajePago.textContent = "Puedes realizar el pago a través de Nequi al número: +57 323 314 8887";
-  modal.style.display = "flex";
-});
+  document.getElementById("nequi-pago").addEventListener("click", () => {
+    mensajePago.textContent = "Puedes realizar el pago a través de Nequi al número: +57 323 314 8887";
+    modal.style.display = "flex";
+  });
 
-document.getElementById("daviplata-pago").addEventListener("click", () => {
-  mensajePago.textContent = "Puedes realizar el pago a través de Daviplata al número: +57 323 314 8887";
-  modal.style.display = "flex";
-});
+  document.getElementById("daviplata-pago").addEventListener("click", () => {
+    mensajePago.textContent = "Puedes realizar el pago a través de Daviplata al número: +57 323 314 8887";
+    modal.style.display = "flex";
+  });
 
-cerrarModal.addEventListener("click", () => {
-  modal.style.display = "none";
-});
-
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
+  cerrarModal.addEventListener("click", () => {
     modal.style.display = "none";
-  }
-});
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
 
 });
 // Refrescar página al hacer clic en "Inicio"
 const btnInicio = document.querySelector('button[data-carpeta="btnInicio"]');
 if (btnInicio) {
   btnInicio.addEventListener('click', () => {
-    location.reload();
+    window.location.href = `/index.html`;
   });
 }
 function mostrarMenu() {
@@ -264,7 +264,7 @@ function mostrarMenu() {
 
 app.get('/categorias', (req, res) => {
   res.json({
-    
+
     categorias: [
       { nombre: 'Bandejas personalizadas', ruta: 'bandejas' },
       { nombre: 'Tazas personalizadas', ruta: 'tazas' },

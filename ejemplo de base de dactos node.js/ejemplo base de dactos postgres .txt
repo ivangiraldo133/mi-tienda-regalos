@@ -1,5 +1,0 @@
-insert inventario 
-
-
-insert into  inventario (producto, cantidad, descripcion, preciocompra, precioventa, marcaproducto, proveedor, ubicacion)
-values('papel',15,'para hacer tarjeta', '2000','5000','adidas', 'pepito', 'kr 35')

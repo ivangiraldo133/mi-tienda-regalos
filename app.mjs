@@ -1,11 +1,9 @@
-// archivo: server.mjs o asegúrate que en package.json tienes "type": "module"
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import cors from 'cors';
-import loginRoutes from './app/routes/usuarioRoutes.mjs'; // Asegúrate que esta ruta sea válida
+import loginRoutes from './app/routes/usuarioRoutes.mjs';
 
-// Necesario para usar __dirname con ESM
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -19,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Servir archivos estáticos desde la carpeta "cliente"
 app.use(express.static(path.join(__dirname, 'cliente')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Ruta para categorías
 app.get('/categorias', (req, res) => {
@@ -50,3 +49,11 @@ app.post('/api/pedidos', (req, res) => {
   // lógica para guardar pedido
   res.json({ success: true });
 });
+
+
+
+
+
+
+
+

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,7 +21,7 @@
   <header class="header">
     <nav>
       <button data-carpeta="btnInicio" id="boton-inicio">Inicio</button>
-      <button data-carpeta="tu pedido" id="boton-tu-pedido">Tu pedido</button>
+      <!-- <button data-carpeta="tu pedido" id="boton-tu-pedido">Tu pedido</button> -->
     </nav>
   </header>
 
@@ -45,94 +46,94 @@
 
 
   <!-- BARRA DE CONTACTO Y PAGO FIJO -->
-  
-<!-- Modal flotante -->
-<div id="modal-pago" class="modal">
-  <div class="modal-contenido">
-    <span class="cerrar-modal">&times;</span>
-    <h2>Método de Pago</h2>
-    <p id="mensaje-pago"></p>
-  </div>
-</div>
 
-
-
-<div class="barra-pagos-flotante">
-  <div class="barra-superior-iconos">
-  <a href="https://wa.me/573233148887" target="_blank" title="WhatsApp">
-    <img src="imagenes/logowhatsapp.jpg" alt="WhatsApp">
-  </a>
-
-
-
-  <button id="nequi-pago" class="pago-opcion" title="Pagar con Nequi">
-    <img src="imagenes/logo nequi.png" alt="Nequi">
-  </button>
-  <button id="daviplata-pago" class="pago-opcion" title="Pagar con Daviplata">
-    <img src="imagenes/logo daviplata.png" alt="Daviplata">
-  </button>
-</div>
-
-  <!-- Mensaje flotante para pagos -->
-  <div id="mensaje-pago" class="mensaje-pago oculto">
-    <p id="texto-mensaje"></p>
+  <!-- Modal flotante -->
+  <div id="modal-pago" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar-modal">&times;</span>
+      <h2>Método de Pago</h2>
+      <p id="mensaje-pago"></p>
+    </div>
   </div>
 
-  <!-- TABLA DE ESTADO DE PEDIDOS -->
-  <div id="seccion-pedidos" class="contenedor-tabla oculto">
-    <table id="tabla-estados">
-      <thead>
-        <tr>
-          <th>ID Estado</th>
-          <th>Pedido ID</th>
-          <th>Estado</th>
-          <th>Fecha Creación</th>
-          <th>Última Actualización</th>
-          <th>Comentarios</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Contenido dinámico desde JS -->
-      </tbody>
-    </table>
-  </div>
 
-  <!-- Script para alternar visibilidad de tabla y secciones -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const botonPedido = document.getElementById('boton-tu-pedido');
-      const botonInicio = document.getElementById('boton-inicio');
-      const seccionPedidos = document.getElementById('seccion-pedidos');
-      const galeria = document.getElementById('galeria');
-      const menuCategorias = document.getElementById('menu-categorias');
 
-      botonPedido.addEventListener('click', () => {
-        const estaVisible = !seccionPedidos.classList.contains('oculto');
-        if (estaVisible) {
+  <div class="barra-pagos-flotante">
+    <div class="barra-superior-iconos">
+      <a href="https://wa.me/573233148887" target="_blank" title="WhatsApp">
+        <img src="imagenes/logowhatsapp.jpg" alt="WhatsApp">
+      </a>
+
+
+
+      <button id="nequi-pago" class="pago-opcion" title="Pagar con Nequi">
+        <img src="imagenes/logo nequi.png" alt="Nequi">
+      </button>
+      <button id="daviplata-pago" class="pago-opcion" title="Pagar con Daviplata">
+        <img src="imagenes/logo daviplata.png" alt="Daviplata">
+      </button>
+    </div>
+
+    <!-- Mensaje flotante para pagos -->
+    <div id="mensaje-pago" class="mensaje-pago oculto">
+      <p id="texto-mensaje"></p>
+    </div>
+
+    <!-- TABLA DE ESTADO DE PEDIDOS -->
+    <div id="seccion-pedidos" class="contenedor-tabla oculto">
+      <table id="tabla-estados">
+        <thead>
+          <tr>
+            <th>ID Estado</th>
+            <th>Pedido ID</th>
+            <th>Estado</th>
+            <th>Fecha Creación</th>
+            <th>Última Actualización</th>
+            <th>Comentarios</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Contenido dinámico desde JS -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Script para alternar visibilidad de tabla y secciones -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const botonPedido = document.getElementById('boton-tu-pedido');
+        const botonInicio = document.getElementById('boton-inicio');
+        const seccionPedidos = document.getElementById('seccion-pedidos');
+        const galeria = document.getElementById('galeria');
+        const menuCategorias = document.getElementById('menu-categorias');
+
+        botonPedido.addEventListener('click', () => {
+          const estaVisible = !seccionPedidos.classList.contains('oculto');
+          if (estaVisible) {
+            seccionPedidos.classList.add('oculto');
+            galeria.classList.remove('oculto');
+            menuCategorias.classList.remove('oculto');
+          } else {
+            seccionPedidos.classList.remove('oculto');
+            galeria.classList.add('oculto');
+            menuCategorias.classList.add('oculto');
+          }
+        });
+
+        botonInicio.addEventListener('click', () => {
           seccionPedidos.classList.add('oculto');
           galeria.classList.remove('oculto');
           menuCategorias.classList.remove('oculto');
-        } else {
-          seccionPedidos.classList.remove('oculto');
-          galeria.classList.add('oculto');
-          menuCategorias.classList.add('oculto');
-        }
+        });
       });
+    </script>
 
-      botonInicio.addEventListener('click', () => {
-        seccionPedidos.classList.add('oculto');
-        galeria.classList.remove('oculto');
-        menuCategorias.classList.remove('oculto');
-      });
-    });
-  </script>
-
-  <!-- Lógica adicional -->
-  <script src="js/pedidos.js"></script>
+    <!-- Lógica adicional -->
+    <script src="js/pedidos.js"></script>
 
 
 
 </body>
-</html>
 
+</html>

@@ -17,7 +17,7 @@
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "express-session": "^1.18.1",
-    "multer": "^2.0.0",
+    "multer": "^2.0.1",
     "pg": "^8.16.0",
     "skeleton-css": "^2.0.4"
   },

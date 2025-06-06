@@ -16,37 +16,37 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Botones para abrir modales
-// Función para abrir un modal por ID
-function openModal(id) {
-  document.getElementById(id).classList.remove("oculto");
-}
+  // Función para abrir un modal por ID
+  function openModal(id) {
+    document.getElementById(id).classList.remove("oculto");
+  }
 
-// Función para cerrar un modal por ID
-function closeModal(id) {
-  document.getElementById(id).classList.add("oculto");
-}
+  // Función para cerrar un modal por ID
+  function closeModal(id) {
+    document.getElementById(id).classList.add("oculto");
+  }
 
-// Asociar botones con modales
-document.getElementById("loginBtn").addEventListener("click", function () {
-  openModal("loginModal");
-});
-
-document.getElementById("abrirRegistro").addEventListener("click", function () {
-  openModal("registroModal");
-});
-
-document.getElementById("abrirRecuperar").addEventListener("click", function () {
-  openModal("recuperarModal");
-});
-
-// Opcional: Cerrar modal al hacer clic fuera del contenido
-document.querySelectorAll(".modal").forEach(modal => {
-  modal.addEventListener("click", function (e) {
-    if (e.target === modal) {
-      modal.classList.add("oculto");
-    }
+  // Asociar botones con modales
+  document.getElementById("loginBtn").addEventListener("click", function () {
+    openModal("loginModal");
   });
-});
+
+  document.getElementById("abrirRegistro").addEventListener("click", function () {
+    openModal("registroModal");
+  });
+
+  document.getElementById("abrirRecuperar").addEventListener("click", function () {
+    openModal("recuperarModal");
+  });
+
+  // Opcional: Cerrar modal al hacer clic fuera del contenido
+  document.querySelectorAll(".modal").forEach(modal => {
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) {
+        modal.classList.add("oculto");
+      }
+    });
+  });
 
   // Registro de usuario
   const registroForm = document.getElementById("registroForm");
@@ -75,8 +75,8 @@ document.querySelectorAll(".modal").forEach(modal => {
       event.target.reset();
     });
   }
- })
- document.addEventListener('DOMContentLoaded', () => {
+})
+document.addEventListener('DOMContentLoaded', () => {
   // Mostrar/Ocultar Modales
   function openModal(modalId) {
     const modal = document.getElementById(modalId);
@@ -115,7 +115,7 @@ document.querySelectorAll(".modal").forEach(modal => {
       return;
     }
     try {
-      const res = await fetch("http://localhost:3000/index", {
+      const res = await fetch("http://localhost:3000/registro", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -145,30 +145,36 @@ document.querySelectorAll(".modal").forEach(modal => {
   // Login con base de datos
   document.getElementById("loginForm")?.addEventListener("submit", async function (e) {
     e.preventDefault();
-    const nombre = document.getElementById("loginNombre").value.trim();
-    const password = document.getElementById("loginPassword").value;
+    const correoelectronico = document.getElementById("loginCorreo").value.trim();
+    const contrasena = document.getElementById("loginPassword").value.trim();
 
-    // try {
-    //   const res = await fetch("http://localhost:3000", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify({ nombre, password }),
-    //   });
+    try {
+      const res = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ correoelectronico, contrasena }),
+      });
 
-    //   const data = await res.json();
-    //   if (data.Nombre) {
-    //     alert(`¡Hola ${data.Nombre}!`);
-    //     closeModal("loginModal");
-    //     e.target.reset();
-    //   } else {
-    //     alert(data.error || "Nombre o contraseña incorrectos.");
-    //   }
-    // } catch (error) {
-    //   alert("Error en el servidor.");
-    //   console.error(error);
-    // }
+      const data = await res.json();
 
-    window.location.href = '/pedidos.html';
+      if (data.correoelectronico) {
+        const correo1 = data.correoelectronico.trim();
+        if (correo1 === 'admin@gmail.com') {
+          window.location.href = '/ingreso.html';
+        } else {
+          window.location.href = '/pedidos.html';
+        }
+      } else {
+        alert(data.error || "Nombre o contraseña incorrectos.");
+      }
+
+
+    } catch (error) {
+      alert("Error en el servidor.");
+      console.error(error);
+    }
+
+
 
   });
 
